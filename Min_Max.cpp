@@ -1,4 +1,4 @@
-// Nhap n so tu ban phim, Tìm giá tri Max, giá tri Min trong dãy so vua nhap.
+// Nhap n so tu ban phim, Tim gia tri Max, gia tri Min trong dãy so vua nhap.
 
 
 #include <stdio.h>
