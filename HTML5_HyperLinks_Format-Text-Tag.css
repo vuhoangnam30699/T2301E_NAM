@@ -1,0 +1,53 @@
+body {
+    background-color: blanchedalmond;
+}
+
+ul {
+    list-style-type: none;
+    line-height: 2.0;
+}
+
+a {
+    font-family: monospace, serif;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: left;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    font-size: 35px;
+    font-family: monospace, serif;
+    font-style: italic;
+}
+
+#a1:hover {
+    color: #4267B2;
+}
+
+#a2:hover {
+    color: #FF0000;
+}
+
+#a3:hover {
+    color: #000000;
+}
+
+#a4:hover {
+    color: #DD2A7B;
+}
+
+#a5:hover {
+    color: #00acee;
+}
+
+#a6:hover {
+    color: #0068FF
+}
