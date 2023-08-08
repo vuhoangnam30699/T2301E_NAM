@@ -14,8 +14,8 @@ public class Main {
                         1,
                         "Hanoi",
                         "Vietnam",
-                        ZonedDateTime.of(2023, 8, 5, 8, 0, 0, 0, ZoneId.of("Asia/Bangkok")),
-                        ZonedDateTime.of(2023, 8, 5, 10, 0, 0, 0, ZoneId.of("Asia/Bangkok")),
+                        ZonedDateTime.of(2023, 8, 5, 8, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
+                        ZonedDateTime.of(2023, 8, 5, 10, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
                         "Ho Chi Minh City"),
                 new DomesticFlight(
                         2,
@@ -37,7 +37,7 @@ public class Main {
                         4,
                         "Ho Chi Minh City",
                         "Vietnam",
-                        ZonedDateTime.of(2023, 8, 4, 15, 0, 0, 0, ZoneId.of("Asia/Bangkok")),
+                        ZonedDateTime.of(2023, 8, 4, 15, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
                         ZonedDateTime.of(2023, 8, 5, 5, 0, 0, 0, ZoneId.of("Japan")),
                         "Tokyo",
                         "Japan"

@@ -1,36 +1,33 @@
 package Part2;
 
-import java.time.ZonedDateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
 public class DomesticFlight extends Flight {
-    private Location destinationCity;
+    private String destinationCity;
+    private Double distance;
 
-    public DomesticFlight(int number, Location departureCity, String departureCountry, ZonedDateTime startTime, ZonedDateTime endTime, Location destinationCity) {
-        super(number, departureCity, departureCountry, startTime, endTime);
-        this.destinationCity = destinationCity;
-    }
-
-    public Location getDestinationCity() {
-        return destinationCity;
-    }
-
-    public void setDestinationCity(Location destinationCity) {
-        this.destinationCity = destinationCity;
-    }
-
-    public double calculatePrice(){
-        double lon1 = this.getDepartureCity().getLongitude();
-        double lon2 = this.getDestinationCity().getLongitude();
-        double lat1 = this.getDepartureCity().getLatitude();
-        double lat2 = this.getDestinationCity().getLatitude();
-
-        double price = 1120 * getDistance(lat1, lat2, lon1, lon2);
-
-        return price;
+    @Override
+    public Double calculatePrice() {
+        return 1120 * distance;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "\nPrice:     " + calculatePrice();
+        return super.toString() +
+                "\nDestination:     " + destinationCity +
+                ", Vietnam" +
+                "\nDistance:        " + distance + " km" +
+                "\nPrice:           " + calculatePrice() + " vnđ";
     }
 }
+

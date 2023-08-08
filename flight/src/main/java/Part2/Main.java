@@ -1,124 +1,173 @@
 package Part2;
 
-import Part1.DomesticFlight;
-import Part1.Flight;
-import Part1.OverseaFlight;
-
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
+        Location hanoi = Location.builder()
+                .city("Hanoi")
+                .country("Vietnam")
+                .continent("ASIA")
+                .latitude(21.213035)
+                .longitude(105.799157)
+                .build();
 
-        List<Flight> flights = List.of(
-                new DomesticFlight(
-                        1,
-                        "Hanoi",
-                        "Vietnam",
-                        ZonedDateTime.of(2023, 8, 5, 8, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
-                        ZonedDateTime.of(2023, 8, 5, 10, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
-                        "Ho Chi Minh City"
-                ),
-                new OverseaFlight(
-                        2,
-                        "Hanoi",
-                        "Vietnam",
-                        ZonedDateTime.of(2023, 8, 4, 14, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
-                        ZonedDateTime.of(2023, 8, 5, 4, 0, 0, 0, ZoneId.of("Asia/Shanghai")),
-                        "Shanghai",
-                        "China"
-                ),
-                new OverseaFlight(
-                        3,
-                        "Hanoi",
-                        "Vietnam",
-                        ZonedDateTime.of(2023, 8, 4, 15, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
-                        ZonedDateTime.of(2023, 8, 6, 18, 0, 0, 0, ZoneId.of("America/New_York")),
-                        "New York City",
-                        "USA"
-                ),
-                new OverseaFlight(
-                        4,
-                        "Hanoi",
-                        "Vietnam",
-                        ZonedDateTime.of(2023, 8, 4, 15, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
-                        ZonedDateTime.of(2023, 8, 6, 6, 0, 0, 0, ZoneId.of("Europe/London")),
-                        "London",
-                        "United Kingdom"
-                ),
-                new OverseaFlight(
-                        5,
-                        "Hanoi",
-                        "Vietnam",
-                        ZonedDateTime.of(2023, 8, 4, 15, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
-                        ZonedDateTime.of(2023, 8, 6, 6, 0, 0, 0, ZoneId.of("America/Sao_Paulo")),
-                        "Rio de Janeiro",
-                        "Brazil"
-                )
-        );
+        Location saigon = Location.builder()
+                .city("Saigon")
+                .country("Vietnam")
+                .continent("ASIA")
+                .latitude(10.776888)
+                .longitude(106.700729)
+                .build();
+
+        Location rio = Location.builder()
+                .city("Rio de Janeiro")
+                .country("Brazil")
+                .continent("SOUTH_AMERICA")
+                .latitude(-22.911111)
+                .longitude(-43.205556)
+                .build();
+
+        Location tokyo = Location.builder()
+                .city("Tokyo")
+                .country("Japan")
+                .continent("ASIA")
+                .latitude(35.682839)
+                .longitude(139.759455)
+                .build();
+
+        Location chicago = Location.builder()
+                .city("Chicago")
+                .country("USA")
+                .continent("NORTH_AMERICA")
+                .latitude(41.878113)
+                .longitude(-87.629799)
+                .build();
+
+        Location cairo = Location.builder()
+                .city("Cairo")
+                .country("Egypt")
+                .continent("AFRICA")
+                .latitude(30.044444)
+                .longitude(31.235833)
+                .build();
+
+        Location london = Location.builder()
+                .city("London")
+                .country("United Kingdom")
+                .continent("EUROPE")
+                .latitude(51.507222)
+                .longitude(-0.1275)
+                .build();
+
+        Location melbourne = Location.builder()
+                .city("Melbourne")
+                .country("Australia")
+                .continent("OCEANIA")
+                .latitude(-25.0)
+                .longitude(133.0)
+                .build();
+
 
         List<Location> locations = List.of(
-                new Location(
-                        "Hanoi",
-                        "Vietnam",
-                        Continent.ASIA,
-                        21.028333,
-                        105.854167
-                ),
-                new Location(
-                        "Ho Chi Minh City",
-                        "Vietnam",
-                        Continent.ASIA,
-                        10.775556,
-                        106.701944
-                ),
-                new Location(
-                        "Shanghai",
-                        "China",
-                        Continent.ASIA,
-                        31.228611,
-                        121.474722
-                ),
-                new Location(
-                        "New York City",
-                        "USA",
-                        Continent.NORTH_AMERICA,
-                        40.712778,
-                        -74.006111
-                ),
-                new Location(
-                        "London",
-                        "United Kingdom",
-                        Continent.EUROPE,
-                        51.507222,
-                        -0.1275
-                ),
-                new Location(
-                        "Rio de Janeiro",
-                        "Brazil",
-                        Continent.SOUTH_AMERICA,
-                        -22.911111,
-                        -43.205556
-                )
+                hanoi, saigon, tokyo, chicago, rio, cairo, london, melbourne
         );
+        Map<String, Location> locationMap = locations.stream().collect(Collectors.toMap(
+                Location::getCity, Function.identity()
+        ));
 
-//        for (Flight flight : flights) {
-//            System.out.println("\n" + flight);
-//        }
 
-        Flight flightA = new OverseaFlight(
-                5,
-                "Hanoi",
-                "Vietnam",
-                ZonedDateTime.of(2023, 8, 4, 15, 0, 0, 0, ZoneId.of("Asia/Ho_Chi_Minh")),
-                ZonedDateTime.of(2023, 8, 6, 6, 0, 0, 0, ZoneId.of("America/Sao_Paulo")),
-                "Rio de Janeiro",
-                "Brazil"
-        );
+        DomesticFlight flightA = DomesticFlight.builder()
+                .number(1)
+                .departureCity("Hanoi")
+                .departureCountry("Vietnam")
+                .startTime(LocalDateTime.of(2023, 8, 5, 8, 0, 0, 0))
+                .endTime(LocalDateTime.of(2023, 8, 5, 10, 0, 0, 0))
+                .destinationCity("Saigon")
+                .distance(DistanceUtils.calculateDistance(locationMap.get("Hanoi"), locationMap.get("Saigon")))
+                .build();
 
-        System.out.println(flightA.calculatePrice());
+        OverseaFlight flightB = OverseaFlight.builder()
+                .number(2)
+                .departureCity("Hanoi")
+                .departureCountry("Vietnam")
+                .startTime(LocalDateTime.of(2023, 8, 4, 12, 0, 0, 0))
+                .endTime(LocalDateTime.of(2023, 8, 6, 0, 0, 0, 0))
+                .destinationCity("Chicago")
+                .destinationCountry("USA")
+                .destinationContinent("NORTH_AMERICA")
+                .distance(DistanceUtils.calculateDistance(locationMap.get("Hanoi"), locationMap.get("Chicago")))
+                .build();
 
+        OverseaFlight flightC = OverseaFlight.builder()
+                .number(3)
+                .departureCity("Hanoi")
+                .departureCountry("Vietnam")
+                .startTime(LocalDateTime.of(2023, 8, 4, 14, 0, 0, 0))
+                .endTime(LocalDateTime.of(2023, 8, 4, 23, 0, 0, 0))
+                .destinationCity("Tokyo")
+                .destinationCountry("Japan")
+                .destinationContinent("ASIA")
+                .distance(DistanceUtils.calculateDistance(locationMap.get("Hanoi"), locationMap.get("Tokyo")))
+                .build();
+
+        OverseaFlight flightD = OverseaFlight.builder()
+                .number(4)
+                .departureCity("Hanoi")
+                .departureCountry("Vietnam")
+                .startTime(LocalDateTime.of(2023, 8, 4, 15, 0, 0, 0))
+                .endTime(LocalDateTime.of(2023, 8, 5, 15, 0, 0, 0))
+                .destinationCity("London")
+                .destinationCountry("United Kingdom")
+                .destinationContinent("EUROPE")
+                .distance(DistanceUtils.calculateDistance(locationMap.get("Hanoi"), locationMap.get("London")))
+                .build();
+
+        OverseaFlight flightE = OverseaFlight.builder()
+                .number(5)
+                .departureCity("Hanoi")
+                .departureCountry("Vietnam")
+                .startTime(LocalDateTime.of(2023, 8, 4, 15, 0, 0, 0))
+                .endTime(LocalDateTime.of(2023, 8, 6, 15, 0, 0, 0))
+                .destinationCity("Rio de Janeiro")
+                .destinationCountry("Brazil")
+                .destinationContinent("SOUTH_AMERICA")
+                .distance(DistanceUtils.calculateDistance(locationMap.get("Hanoi"), locationMap.get("Rio de Janeiro")))
+                .build();
+
+        OverseaFlight flightF = OverseaFlight.builder()
+                .number(6)
+                .departureCity("Hanoi")
+                .departureCountry("Vietnam")
+                .startTime(LocalDateTime.of(2023, 8, 4, 10, 0, 0, 0))
+                .endTime(LocalDateTime.of(2023, 8, 5, 6, 0, 0, 0))
+                .destinationCity("Cairo")
+                .destinationCountry("Egypt")
+                .destinationContinent("AFRICA")
+                .distance(DistanceUtils.calculateDistance(locationMap.get("Hanoi"), locationMap.get("Cairo")))
+                .build();
+
+        OverseaFlight flightG = OverseaFlight.builder()
+                .number(7)
+                .departureCity("Hanoi")
+                .departureCountry("Vietnam")
+                .startTime(LocalDateTime.of(2023, 8, 4, 9, 0, 0, 0))
+                .endTime(LocalDateTime.of(2023, 8, 5, 8, 0, 0, 0))
+                .destinationCity("Melbourne")
+                .destinationCountry("Australia")
+                .destinationContinent("OCEANIA")
+                .distance(DistanceUtils.calculateDistance(locationMap.get("Hanoi"), locationMap.get("Melbourne")))
+                .build();
+
+        List<Flight> flights = List.of(flightA, flightB, flightC, flightD, flightE, flightF, flightG);
+        flights.forEach(f -> {
+            System.out.println(f);
+            System.out.println("\n");
+        });
     }
 }
