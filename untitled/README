@@ -1,0 +1,239 @@
+private / public / protected : access modifier
+
+static -> thuộc về class, không thuộc về instance / object
+
+
+Asset Modifier
+
+                    |       Trong Class     |       Cùng package    |       Lớp con         |        None       |
+private             |           X           |                       |                       |                   |
+package (default)   |           X           |           X           |                       |                   |
+protected           |           X           |           X           |           X           |                   |
+public              |           X           |           X           |           X           |         X         |
+
+
+
+Kiểu dữ liệu không phải nguyên thủy sẽ thay đổi khi tham chiếu, nguyên thủy thì không
+
+------------------------------------------------------------------------------------------------------------------------
+
+Authen -> Session, Cookie, JWT, Oauth2
+Debugging
+Cloud : AWS
+Build / Web
+
+------------------------------------------------------------------------------------------------------------------------
+
+Convention  - Naming convention -> camel case : VuHoangNam (Java)
+
+Class       | StreetFood
+Variable    | streetFood
+Method      | buyStreetFood
+Boolean     | isGood
+              isMale
+
+------------------------------------------------------------------------------------------------------------------------
+
+GitLab :
+
+1. Dùng terminal với Mac hoặc Linux, Git bash với Windows
+2. Gõ ssh-keygen trong git bash -> Enter 3 lần => ssh key sẽ được tạo và lưu trong file C:/Users/<username>/.ssh/id_rsa.pub
+3. Truy cập file C:/Users/<username>/.ssh/id_rsa.pub
+4. Lấy nội dung file ở bước 3 cho vào mục SSH Keys trong User setting trên gitlab.com
+5. Copy url trong mục “Clone” / “Clone with ssh” của project
+6. Di chuyển tới thư mục muốn lưu code trong git bash (sử dụng lệnh cd, tham khảo thêm google)
+7. Gõ lệnh "git clone <url>" trong git bash để tải project về
+8. Tạo nhánh cá nhân mới trên gitlab.com
+9. Di chuyển vào trong project (sử dụng cd) rồi pull về "git pull"
+10. Thực hiện chỉnh sửa trên nhánh cá nhân
+11. Thực hiện các câu lệnh để commit + push:
+    1. git status
+    2. git add <files to add>
+    3. git commit -m “<comment>”
+    4. git push origin <branch name>
+12. Truy cập project tại gitlab.com, tạo merge request từ nhánh cá nhân vào main
+
+------------------------------------------------------------------------------------------------------------------------
+
+final + var : ko thể thay đổi giá trị
+final + method : ko thể override
+final + class : ko thể kế thừa
+
+array -> collection ( kiểu dữ liệu lưu đc nhiều giá trị )   -> List -> ArrayList
+                                                            -> Set
+                                                            -> Queue
+                                                            -> Map (Không thuộc kiểu collection nhưng tương tự)
+
+                    Generic
+            -------------------------
+   int      |       Integer         |
+   boolean  |       Boolean         |   -> Immutable : không thể thay đổi
+   double   |       Double          |
+            -------------------------
+                   Wrapper Class
+
+enum(eration)
+constant -> UPPER_CASE
+
+------------------------------------------------------------------------------------------------------------------------
+
+interface       -> tạm gọi không có variable
+                -> method là abstract
+
+abstract class  -> Có variable
+                -> Method có abstract hoặc không
+
+variable        -> Có variables
+                -> Method có body
+
+
+
+Encapsulation (Đóng gói)        -> Asset Modifier
+                                -> Class
+
+Abstraction (Trừu tượng)        -> Variable
+
+Polymorphism (Đa hình)          -> Override / Overload
+
+Inheritance (Kế thừa)           -> Extends
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Exception
+    + Checked
+    + Unchecked (Runtime Exception) -> Arithmetic
+                                    ->
+                                    ->
+                                    ->
+
+
+Throw (chủ động gây ra lỗi) -> thường dùng khi nằm trong hàm con
+Throws
+    + Checked
+    + Unchecked
+
+------------------------------------------------------------------------------------------------------------------------
+
+ZonedDateTime
+LocalDate
+
+------------------------------------------------------------------------------------------------------------------------
+
+Cách đặt tên
+
+GroupId     --> Company
+ArtifactId  --> Tên dự án
+
+------------------------------------------------------------------------------------------------------------------------
+
+keyword : Slf4j maven, lombok maven (MVN REPOSITORY)
+
+Annotation : "chú thích" --> @_name_
+
+    + Override              --> Chú thích method override
+    + Suppress Warnings     --> Bỏ warning
+    + Peprecated            --> Chú thích là hàm không nên dùng sẽ bị loại bỏ
+
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@Builder
+
+Ảnh hưởng 2 thời điểm   + compile
+                        + runtime
+
+Apply for   + class
+            + method
+            + field
+            + param
+
+------------------------------------------------------------------------------------------------------------------------
+
+Tìm từ khóa : Ctrl + Shift + F
+
+Search : Shift + Shift
+
+Reformat Code : Ctrl + Alt + L
+
+Shift + Alt + <-
+
+Shift + Alt + ->
+
+------------------------------------------------------------------------------------------------------------------------
+
+Maven
+
+clean       (xóa các tệp được tạo ra trong lần build trước đó)
+compile     (compile source code.)(java -> class)
+test        (chạy các case unit test tương ứng với frame work sử dụng.)
+package     (đóng gói code đã được compile theo đúng định dạng.)(-> .jar)
+install     (để cài đặt artifact trong local repository)
+deploy      (để thêm artifact của bạn vào một repository từ xa để chia sẻ với các nhà phát triển và dự án khác.)
+
+------------------------------------------------------------------------------------------------------------------------
+JS  -> Arrow function       Java    -> Lambda
+
+1. List.stream()
+
+2. Trung gian       -> map      -> Convert
+(Intermediate)      -> filter   -> Lọc
+
+3. Kết thúc         -> collect.(Collection) -> ...
+(Terminal)          -> sum, max, min        -> số
+                            ==> phải dùng mapToInt();
+
+4. Optional : "Chưa chắc đã tìm ra"
+
+sort    -> sử dụng Comparator
+
+------------------------------------------------------------------------------------------------------------------------
+
+Naming convention
+
+- Class, Interface, Enum : Viết hoa chữ đầu (ko dùng số ở mọi tên)
+
+- Variable / Field : Thường chữ đầu (để private)
+
+- Boolean : is...
+
+- Array / List : Thêm (s) / List
+
+- Constant : Full hoa, vd: HANG_SO_PI
+
+- Method : Thường chữ đầu (để public)
+
+=> Ko định nghĩa nhiều class trong 1 file
+
+------------------------------------------------------------------------------------------------------------------------
+
+INTERVIEW
+
+1. Giới thiệu
+2. Mô tả 1 dự án đã tham gia (Java Spring Boot)
+
+    - DB
+        + PostgreSQL (phổ biến hơn)
+        + MySQL
+    - BE
+        + Spring Boot
+    - FE (Không quá cần thiết nếu theo Java)
+        + Template bất kì (HTML, CSS, JS)
+
+    - Team bao nhiêu người
+    - Làm những gì
+    - Mô tả chung các chức năng của dự án
+
+3. Câu hỏi xung quanh
+
+    * Authen
+    - Java core : OOP, Interface, Abstract Class, Kiểu dữ liệu (Nguyên thủy - Ko nguyên thủy), Collection (List), Map
+    - Framework (Spring) : Autowired, JPA, config
+    - SQL : + Select, Join (INNER, LEFT), ...
+            + Index
+            + Trigger, Function, Procedure  -> "Biết là có"
+    - Server-side Render vs Client-side Render (tìm hiểu)
+    - Git (Pull, Push, Branch, Conflict, ...)
+
+------------------------------------------------------------------------------------------------------------------------
