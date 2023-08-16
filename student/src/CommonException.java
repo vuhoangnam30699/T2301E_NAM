@@ -8,7 +8,7 @@ public class CommonException extends RuntimeException {
         this.extraInfo = extraInfo;
     }
 
-    public int getErrorCode() {
+    public Integer getErrorCode() {
         return errorCode;
     }
 
