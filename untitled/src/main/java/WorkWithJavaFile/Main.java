@@ -27,7 +27,7 @@ public class Main {
 
         Student user = new Student();
         user.setName("Josh");
-        try (FileOutputStream bos = new FileOutputStream("test.txt");
+        try (FileOutputStream bos = new FileOutputStream("C:\\Users\\Admin\\IdeaProjects\\untitled\\src\\main\\java\\WorkWithJavaFile\\student.txt");
              ObjectOutputStream oos = new ObjectOutputStream(bos)) {
             oos.writeObject(user);
             oos.writeObject(new Date());
@@ -40,7 +40,7 @@ public class Main {
 //        writer.close();
 
 
-        FileInputStream fis = new FileInputStream("test.txt");
+        FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\IdeaProjects\\untitled\\src\\main\\java\\WorkWithJavaFile\\student.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
         Student student = (Student) ois.readObject();
         Date date = (Date) ois.readObject();
