@@ -1,11 +1,10 @@
-import java.time.ZonedDateTime;
 
-public class School extends Record {
+public class School extends Record<Integer> {
     private String name;
     private String address;
 
-    public School(Integer id, ZonedDateTime createdAt, ZonedDateTime updatedAt, String name, String address) {
-        super(id, createdAt, updatedAt);
+    public School(Integer id, String name, String address) {
+        super(id);
         this.name = name;
         this.address = address;
     }
@@ -14,23 +13,8 @@ public class School extends Record {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "School{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
 }

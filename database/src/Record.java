@@ -1,40 +1,33 @@
 import java.time.ZonedDateTime;
 
-public abstract class Record {
-    private Integer id;
+public abstract class Record<ID> {
+    private ID id;
     private ZonedDateTime createdAt;
     private ZonedDateTime updatedAt;
 
-    public Record(Integer id, ZonedDateTime createdAt, ZonedDateTime updatedAt) {
+    public Record(ID id) {
         this.id = id;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.createdAt = ZonedDateTime.now();
+        this.updatedAt = ZonedDateTime.now();
     }
 
-    public Integer getId() {
+    public ID getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public ZonedDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(ZonedDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public ZonedDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(ZonedDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setId(ID id) {
+        this.id = id;
     }
 
-
-    public abstract String toString();
+    public void setUpdatedAt() {
+        this.updatedAt = ZonedDateTime.now();
+    }
 }

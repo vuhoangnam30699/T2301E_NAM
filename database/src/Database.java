@@ -3,57 +3,58 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Database<T extends Record> {
-    private List<T> records;
-
-    public Database() {
-        this.records = new ArrayList<>();
-    }
-
-    private int nextId = 1;
-
-    public int getNextId() {
-        return nextId++;
-    }
+class Database<T extends Record<ID>, ID> {
+    private List<T> records = new ArrayList<>();
 
     public void save(T record) {
         if (record.getId() == null) {
-            record.setId(getNextId());
+            Integer maxId = records.stream()
+                    .mapToInt(r -> (Integer) r.getId())
+                    .max()
+                    .orElse(0);
+            record.setId((ID) (Integer.valueOf(maxId + 1)));
         }
 
-        boolean isNew = !records.contains(record);
-        if (isNew) {
-            records.add(record);
-        } else {
-            records.set(records.indexOf(record), record);
+        T existingRecord = find(record.getId());
+        if (existingRecord != null) {
+            records.remove(existingRecord);
         }
+
+        record.setUpdatedAt();
+        records.add(record);
     }
 
-    public T find(int id){
+    public T find(ID id) {
         return records.stream()
                 .filter(record -> record.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
 
-    public T delete(int id){
+    public T delete(ID id) {
         T record = find(id);
-        if(record != null){
+        if (record != null) {
             records.remove(record);
+            return record;
         }
-        return record;
+        return null;
     }
 
 
     public List<T> findByCreatedAtAfter(ZonedDateTime time) {
         return records.stream()
-                .filter(record -> record.getCreatedAt().isAfter(time) || record.getCreatedAt().isEqual(time))
+                .filter(record -> !record.getCreatedAt().isBefore(time))
                 .collect(Collectors.toList());
     }
 
     public List<T> findByUpdatedAtAfter(ZonedDateTime time) {
         return records.stream()
-                .filter(record -> record.getUpdatedAt().isAfter(time) || record.getCreatedAt().isEqual(time))
+                .filter(record -> !record.getUpdatedAt().isBefore(time))
                 .collect(Collectors.toList());
     }
+
+    public List<T> getAllRecords() {
+        return new ArrayList<>(records);
+    }
+
 }
