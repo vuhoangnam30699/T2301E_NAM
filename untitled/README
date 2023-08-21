@@ -300,3 +300,31 @@ wildcard:  ?
            (tuyệt đối)       (tương đối)
 
 ------------------------------------------------------------------------------------------------------------------------
+thread : luồng -> tiến trình thực thi từ trên xống dưới ko cắt ngang, dùng mọi lúc mọi nơi
+
+... class ... extends Thread {
+    @Override
+    public void run() {
+
+    }
+}
+
+
+1. synchronized : tuần tự
+
+2. Dùng kiểu dữ liệu phù hợp (Thread - safe)
+
++ ConcurrentHashMap
++ SynchronizedHashMap
++ Vector
++ HashTable
++ CopyOnWriteArrayList
++ CopyOnWriteArraySet
++ Stack
+
+
+
+CompletableFuture   -> runAsync (void)
+                    -> supplyAsync (...)
+
+---> Dùng khi Job ko lặp lại
