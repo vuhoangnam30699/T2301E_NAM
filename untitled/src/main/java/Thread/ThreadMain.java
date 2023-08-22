@@ -11,8 +11,7 @@ public class ThreadMain {
         Job job2 = new Job(2, list);
         job1.start();
         job2.start();
-
-        System.out.println("Start");
+        System.out.println("Da start");
 
         job1.join();
         job2.join();

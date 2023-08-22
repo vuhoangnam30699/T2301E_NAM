@@ -3,7 +3,7 @@ package Thread;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-public class TestCompletableFuture {
+public class TestCF {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         CompletableFuture<Void> thread1 = CompletableFuture.runAsync(() -> {
             for (int i = 0; i < 10; i++) {
@@ -17,14 +17,7 @@ public class TestCompletableFuture {
         });
 
         CompletableFuture<Void> thread2 = CompletableFuture.runAsync(() -> {
-            for (int i = 0; i < 10; i++) {
-                System.out.println(2);
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+            System.out.println("xin chao");
         });
 
         thread1.get();

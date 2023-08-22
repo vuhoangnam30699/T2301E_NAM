@@ -1,14 +1,11 @@
 package Thread;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
-
 
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
 public class Job extends Thread {
     private int number;
     private List<Integer> list;
@@ -22,7 +19,6 @@ public class Job extends Thread {
 //            }
             add(number, list);
             sleep(1);
-
         }
     }
 
