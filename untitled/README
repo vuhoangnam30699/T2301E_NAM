@@ -330,3 +330,44 @@ CompletableFuture   -> runAsync (void)
 ---> Dùng khi Job ko lặp lại
 
 ------------------------------------------------------------------------------------------------------------------------
+
+                    + Creational    -> Tạo          -> Singleton    -> 1 instance tồn tại
+
+Design Pattern      + Structural    -> Cấu trúc     -> DAO (*)
+
+                    + Behavioral    -> Hành vi      -> Mediator
+
+
+@keyword :   -> Design Pattern là gì ?
+
+------------------------------------------------------------------------------------------------------------------------
+
+Internationalization    ->  Quốc tế hóa
+
+DateTime, Currency, Number  -> FE
+
+Message                     -> BE   -> Resource Bundle
+
+------------------------------------------------------------------------------------------------------------------------
+
+HTTP Request        +   Method      : GET               -> Lấy dữ liệu      [JSON,...]
+                                      POST              -> Tạo dữ liệu
+                                      PUT / PATCH       -> Chỉnh sửa dữ liệu
+                                      DELETE            -> Xóa dữ liệu
+
+                    +   URL         : http://.... , https://....
+
+                    +   Header      : Chứa các metadata : Security, Language, ...
+
+                    +   Body        : Dữ liệu gửi lên : POST, PUT, DELETE
+
+https://.....? a=1&b=2&c=3          -> Request parameter param (Query Params)
+
+@Directory : OKHTTP maven
+
+
+@JsonIgnoreProperties
+@JsonProperty
+@JsonAlias
+
+------------------------------------------------------------------------------------------------------------------------
