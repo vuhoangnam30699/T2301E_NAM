@@ -80,7 +80,6 @@ public class ListDAOImpl implements ListDAO {
                     .type(myType)
                     .build());
         }
-
         statement.close();
         return reactions;
     }
@@ -90,12 +89,13 @@ public class ListDAOImpl implements ListDAO {
     public List<User> listReactedUsers(int userId) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(
-                "SELECT u.id AS user_id, u.first_name, u.last_name, u.dob, p.id AS post_id, r.id AS reaction_id" +
-                        " FROM user_nam u " +
-                        "JOIN reaction_nam r ON u.id = r.post_id " +
-                        "JOIN post_nam p ON r.post_id = p.id " +
-                        "WHERE p.user_id = ? "
+                "select distinct u2.id, u2.first_name, u2.last_name, u2.dob from user_nam u1\n" +
+                        "    join post_nam p on u1.id = p.user_id\n" +
+                        "    join reaction_nam r on p.id = r.post_id\n" +
+                        "    join user_nam u2 on r.user_id = u2.id\n" +
+                        "where u1.id = ?"
         );
+
         statement.setInt(1, userId);
         ResultSet resultSet = statement.executeQuery();
         Set<User> userSet = new HashSet<>();

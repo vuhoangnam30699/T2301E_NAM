@@ -355,9 +355,11 @@ HTTP Request        +   Method      : GET               -> Lấy dữ liệu    
                                       PUT / PATCH       -> Chỉnh sửa dữ liệu
                                       DELETE            -> Xóa dữ liệu
 
-                    +   URL         : http://.... , https://....
+                    +   URL         : http://....(Path)?....(Param)
+                                      https://....(Path)?....(Param)
 
-                    +   Header      : Chứa các metadata : Security, Language, ...
+                    +   Header      : - Metadata : Security, Language, ...
+                                      - Authen
 
                     +   Body        : Dữ liệu gửi lên : POST, PUT, DELETE
 
@@ -369,5 +371,6 @@ https://.....? a=1&b=2&c=3          -> Request parameter param (Query Params)
 @JsonIgnoreProperties
 @JsonProperty
 @JsonAlias
+
 
 ------------------------------------------------------------------------------------------------------------------------
