@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schools
+        xmlns="https://www.w3schools1.com"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.w3schools1.com/ school.xsd">
+    <school>
+        <student>
+            <name>nam</name>
+            <age>3</age>
+        </student>
+
+        <student>
+            <name>vu</name>
+            <age>2</age>
+        </student>
+
+        <student>
+            <name>hoang</name>
+            <age>5</age>
+        </student>
+    </school>
+
+    <school>
+        <student>
+            <name>nam</name>
+            <age>3</age>
+        </student>
+
+        <student>
+            <name>vu</name>
+            <age>2</age>
+        </student>
+
+        <student>
+            <name>hoang</name>
+            <age>5</age>
+        </student>
+    </school>
+</schools>

@@ -42,6 +42,6 @@ public class School {
 
     @Override
     public String toString() {
-        return name + ", " + address + classes;
+        return name + ", " + address + " " + classes;
     }
 }

@@ -37,10 +37,15 @@ public class Main {
                         .findFirst()
                         .orElse(null)));
 
-        for (School key : groupBySchool.keySet()) {
-            System.out.println("\n");
-            System.out.println(key);
-            System.out.println(groupBySchool.get(key));
-        }
+//        for (School key : groupBySchool.keySet()) {
+//            System.out.println("\n");
+//            System.out.println(key);
+//            System.out.println(groupBySchool.get(key));
+//        }
+
+        String result = groupBySchool.entrySet().stream()
+                .map(entry -> "\n\n" + entry.getKey() + "\n" + entry.getValue())
+                .collect(Collectors.joining());
+        System.out.println(result);
     }
 }

@@ -1,18 +1,17 @@
+import java.util.List;
+
 public class CommonException extends RuntimeException {
-    private Integer errorCode;
-    private String extraInfo;
+    private List<ValidationError> errors;
 
-    public CommonException(Integer errorCode, String extraInfo) {
-        super();
-        this.errorCode = errorCode;
-        this.extraInfo = extraInfo;
+    public CommonException(List<ValidationError> errors) {
+        this.errors = errors;
     }
 
-    public Integer getErrorCode() {
-        return errorCode;
+    public List<ValidationError> getErrors() {
+        return errors;
     }
 
-    public String getExtraInfo() {
-        return extraInfo;
+    public void setErrors(List<ValidationError> errors) {
+        this.errors = errors;
     }
 }

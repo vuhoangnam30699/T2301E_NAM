@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<store>
+    <product>
+        <name>Adidas Shoes</name>
+        <sku>ABC1</sku>
+        <color>Black</color>
+        <price>100.0</price>
+        <quantity>10</quantity>
+        <categories>
+            <category>
+                <name>Shoes</name>
+                <parent>Appearance</parent>
+            </category>
+            <category>
+                <name>Accessory</name>
+                <parent>Sport</parent>
+            </category>
+        </categories>
+    </product>
+</store>

@@ -47,14 +47,13 @@ public class Order {
         return totalCost;
     }
 
-    public boolean addProduct(Product product, Integer quantity) {
+    public void addProduct(Product product, Integer quantity) throws OutOfStockException {
         if (quantity <= product.getQuantity()) {
             LineItem item = new LineItem(product, quantity);
             lineItems.add(item);
             product.setQuantity(product.getQuantity() - quantity);
-            return true;
         } else {
-            return false;
+            throw new OutOfStockException();
         }
     }
 

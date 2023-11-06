@@ -374,3 +374,76 @@ https://.....? a=1&b=2&c=3          -> Request parameter param (Query Params)
 
 
 ------------------------------------------------------------------------------------------------------------------------
+XML     ->  Lưu trữ dữ liệu
+        ->  Trao đổi dữ liệu giữa các chương trình, các hệ thống khác nhau
+
+-> Tên phần tử có phân biệt chữ hoa chữ thường
+-> Tên phần tử phải bắt đầu bằng chữ cái hoặc dấu gạch dưới
+-> Tên phần tử không thể bắt đầu bằng các chữ cái xml (hoặc XML hoặc Xml, v.v.)
+-> Tên phần tử có thể chứa các chữ cái, chữ số, dấu gạch nối, dấu gạch dưới và dấu chấm
+-> Tên phần tử không được chứa dấu cách
+
+Style : XSL, XSLT, CSS
+
+Validate : DTD, XML Schema (XSD)
+
+XML     --- (Deserialize) --->    Object
+
+            + DOM
+            + XML Mapper
+
+------------------------------------------------------------------------------------------------------------------------
+
+JSON    -> Javascript Object Notation
+
+    key : value     -> number
+     |              -> string   -> " "
+   string           -> boolean  -> true / false
+                    -> array    -> [ ]
+                    -> object   -> { }
+                    -> null
+
+JSON    ->      Object
+
+C1: DOM
+C2: ObjectMapper (suggest)
+
+
+JSON        --- Deserialize -->     Object  :   Setter
+Object      --- Serialize   -->     JSON    :   Getter
+
+------------------------------------------------------------------------------------------------------------------------
+Ngôn ngữ mô hình hóa thống nhất (tiếng Anh: Unified Modeling Language, viết tắt thành UML)
+Stakeholder : các bên liên quan
+
+Analysis    : Phân tích     ->  What to do      ->  Problem Domain
+Design      : Thiết kế      ->  How             ->  Design database, UI         -->  Output -> UML
+Implement   : Triển khai    ->
+
+Bài 1 : Nghiên cứu UML được giao                -> hạn nộp  : T2 tuần sau
+
+Bài 2 : Phân tích 1 dự án phần mềm tự đề xuất   -> gửi đề   : T2 tuần sau
+                                                -> hạn nộp  : T2 tuần sau nữa
+
+
+Chủ đề  : phần mềm bán hàng
+keyword : State Machine Diagram, Use Case Diagram
+
+1. Giới thiệu
+2. Tổng quan về hệ thống
+    a. Phát biểu bài toán
+    b. Mục tiêu hệ thống
+    c. Phạm vi hệ thống (end users, stakeholder, )
+3. Phân tích: Mô hình hóa bằng UML và mô tả
+4. Thiết kế: Database, Giao diện
+
+------------------------------------------------------------------------------------------------------------------------
+
+Python  :   Beautiful Soup
+Java    :   Jsoup
+
+------------------------------------------------------------------------------------------------------------------------
+String      ->  NotBlank
+Collection  ->  NotEmpty
+Others      ->  NotNull
+
